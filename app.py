@@ -74,13 +74,7 @@ def generate_visualization():
     if ui.radioButton_remove_tuples.isChecked():
         df_local = df.dropna()
     elif ui.radioButton_fill_mean.isChecked():
-        # df_local = df.fillna(df.mean())
-
-        numeric_columns = df.select_dtypes(include=[np.number]).columns
-        df_local[numeric_columns] = df[numeric_columns].fillna(df[numeric_columns].mean())
-
-        # non_numeric_columns = df.select_dtypes(exclude=[np.number]).columns
-        # df_local[non_numeric_columns] = df[non_numeric_columns].fillna(df[non_numeric_columns].mode().iloc[0])
+        df_local = df.fillna(df.mean(numeric_only=True))
 
     vis_selection = ui.comboBox_vis.currentText()
 
