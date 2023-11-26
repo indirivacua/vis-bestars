@@ -43,6 +43,7 @@ def get_file():
     filename, _filter = QFileDialog.getOpenFileName(MainWindow, 'Open file', '', 'CSV files (*.csv)')
     ui.lineEdit_filepath.setText(filename)
 
+    # Fill TableView
     with open(filename, "r") as fileInput:
         for i, row in enumerate(csv.reader(fileInput)):
             if i == 0:
@@ -57,8 +58,8 @@ def get_file():
     global df
     df = pd.read_csv(filename)
 
-    tree = ui.treeWidget_features
-    parent = QTreeWidgetItem(tree)
+    # Fill TreeWidget
+    parent = QTreeWidgetItem(ui.treeWidget_features)
     parent.setText(0, "Atributos")
     parent.setFlags(parent.flags() | Qt.ItemIsTristate | Qt.ItemIsUserCheckable)
     for x, d in zip(df.columns, df.dtypes):
@@ -81,7 +82,6 @@ def generate_visualization():
     columns = find_checked(ui.treeWidget_features)
     columns = columns["Atributos"]
     columns = [x.split(' ')[0] for x in columns] #remove the type
-    # print(columns)
 
     try:
         if vis_selection == "Matriz de correlación":
@@ -92,11 +92,6 @@ def generate_visualization():
                 "La visualización no se encuentra implementada aún.")
     except Exception as e:
         generate_custom_message_box("Error: Visualization can't be shown.", str(e))
-    
-    # print(df.head())
-    # width = MainWindow.frameGeometry().width()
-    # height = MainWindow.frameGeometry().height()
-    # print(width, height)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

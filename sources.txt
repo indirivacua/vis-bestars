@@ -13,3 +13,4 @@ https://stackoverflow.com/questions/26963786/pyqt-get-list-of-all-checked-in-qtr
 https://stackoverflow.com/questions/33954886/how-to-make-push-button-immediately-disabled
 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dtypes.html
 https://stackoverflow.com/questions/4690600/python-exception-message-capturing#comment74061301_43453668
+https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.mean.html
