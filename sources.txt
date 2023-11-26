@@ -1,0 +1,15 @@
+https://www.tutorialspoint.com/pyqt/pyqt_qfiledialog_widget.htm
+https://stackoverflow.com/questions/23915700/how-to-make-a-qlineedit-not-editable-in-windows/23916775
+https://gis.stackexchange.com/questions/418695/loading-and-writing-csv-file-in-qtableview-with-python-3-10-for-qgis-plugin
+https://stackoverflow.com/questions/31342228/pyqt-tree-widget-adding-check-boxes-for-dynamic-removal
+https://stackoverflow.com/questions/15204470/pyqt-how-to-get-a-widgets-dimensions
+https://stackoverflow.com/questions/8421614/how-to-add-items-to-a-qcombobox-in-pyqt-pyside
+https://www.geeksforgeeks.org/pyqt5-getting-the-text-of-selected-item-in-combobox/
+https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html
+https://stackoverflow.com/questions/18689823/pandas-dataframe-replace-nan-values-with-average-of-columns/63158885#63158885
+https://datatofish.com/correlation-matrix-pandas/
+https://www.statology.org/pandas-keep-columns/
+https://stackoverflow.com/questions/26963786/pyqt-get-list-of-all-checked-in-qtreewidget/26982959#26982959
+https://stackoverflow.com/questions/33954886/how-to-make-push-button-immediately-disabled
+https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dtypes.html
+https://stackoverflow.com/questions/4690600/python-exception-message-capturing#comment74061301_43453668
