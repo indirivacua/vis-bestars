@@ -16,6 +16,13 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Herramienta de Visualización para Datos Astronómicos (Be stars)&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Autores: Oscar Agustín Stanchi y Santiago Ponte Ahon&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QFrame" name="frame">
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -65,9 +72,9 @@
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
-              <widget class="QRadioButton" name="radioButton_remove_tuples">
+              <widget class="QRadioButton" name="radioButton_fill_mean">
                <property name="text">
-                <string>Eliminar las tuplas</string>
+                <string>Rellenar con la media</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -75,9 +82,9 @@
               </widget>
              </item>
              <item>
-              <widget class="QRadioButton" name="radioButton_fill_mean">
+              <widget class="QRadioButton" name="radioButton_remove_tuples">
                <property name="text">
-                <string>Rellenar con la media</string>
+                <string>Eliminar las tuplas</string>
                </property>
               </widget>
              </item>
@@ -88,7 +95,13 @@
            <widget class="QComboBox" name="comboBox_vis"/>
           </item>
           <item>
-           <widget class="QTreeWidget" name="treeWidget_features"/>
+           <widget class="QTreeWidget" name="treeWidget_features">
+            <column>
+             <property name="text">
+              <string notr="true">1</string>
+             </property>
+            </column>
+           </widget>
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_vis">

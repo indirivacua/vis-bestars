@@ -14,3 +14,7 @@ https://stackoverflow.com/questions/33954886/how-to-make-push-button-immediately
 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dtypes.html
 https://stackoverflow.com/questions/4690600/python-exception-message-capturing#comment74061301_43453668
 https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.mean.html
+https://forum.qt.io/topic/58870/what-is-the-best-way-to-delete-all-qtreewidgetitems-in-a-qtreewidget/2
+https://www.geeksforgeeks.org/how-to-remove-all-items-in-a-qlistwidget-in-pyqt5/
+https://stackoverflow.com/questions/919680/can-a-variable-number-of-arguments-be-passed-to-a-function
+https://stackoverflow.com/questions/62780037/how-to-remove-legend-from-pandas-parallel-coordinates-and-resize-the-canvas-imag
