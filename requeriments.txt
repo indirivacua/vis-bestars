@@ -3,3 +3,4 @@ pyqt5-tools
 pandas
 seaborn
 matplotlib
+astropy
