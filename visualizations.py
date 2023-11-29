@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import *
 import pandas as pd
 import numpy as np
-import seaborn as sn
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 name = None
@@ -38,23 +38,35 @@ def set_name(window, buttons):
             break
     window.close()
 
+from matplotlib.colors import LogNorm
+import math
+
 def correlation_matrix(df, columns):
     corr_matrix = df[columns].corr().abs()
     # Generate a mask for the upper triangle
     mask = np.triu(np.ones_like(corr_matrix, dtype=bool))
     # Generate a custom diverging colormap
-    cmap = sn.diverging_palette(230, 20, as_cmap=True)
-    sn.heatmap(corr_matrix, mask=mask, cmap=cmap, 
+    cmap = sns.diverging_palette(230, 20, as_cmap=True)
+    # Apply logarithmic color map
+    log_norm = LogNorm(vmin=corr_matrix.min().min(), vmax=corr_matrix.max().max())
+    sns.heatmap(corr_matrix, mask=mask, cmap=cmap, norm=log_norm, 
                vmax=1, vmin=-1, center=0, square=True, linewidths=.5, cbar_kws={"shrink": .5})
     plt.show()
 
 def violin(df, columns):
-    sn.violinplot(data=df[columns], inner="points")    
+    sns.violinplot(data=df[columns], inner="points")    
     plt.tight_layout()
     plt.show()
 
 def histogram(df, columns):
-    df[columns].hist(bins=15)
+    cmaps = sns.color_palette(as_cmap=True)
+
+    axes = df[columns].hist(bins=15)
+
+    for i, ax in enumerate(axes.flatten()):
+        for rect in ax.patches:
+            rect.set_color(cmaps[i % len(cmaps)])
+
     plt.show()
 
 def parallel_coordinates(df, columns):
@@ -68,7 +80,15 @@ def parallel_coordinates(df, columns):
     plt.show()
 
 def scatter_matrix(df, columns):
-    pd.plotting.scatter_matrix(df[columns],alpha=0.9,grid=False)
+    scatter_matrix = pd.plotting.scatter_matrix(df[columns],alpha=0.9,grid=False)
+
+    cmaps = sns.color_palette(as_cmap=True)
+
+    # Cambia el color de los títulos de los ejes
+    for ax in scatter_matrix.ravel():
+        ax.xaxis.label.set_color(cmaps[columns.index(ax.xaxis.label.get_text())])
+        ax.yaxis.label.set_color(cmaps[columns.index(ax.yaxis.label.get_text())])
+
     plt.show()
 
 from astropy.coordinates import SkyCoord
@@ -82,7 +102,7 @@ def sky_cord(df, columns):
 
     # Crear un mapa de colores para los tipos de estrellas
     unique_stars = df[name].unique()
-    colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink', 'olive', 'cyan', 'brown']
+    colors = ('#556270','#4ECDC4','#C7F464', '#000000')
     colormap = {star: color for star, color in zip(unique_stars, colors)}
 
     # Mapear los tipos de estrellas a colores

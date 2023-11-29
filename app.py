@@ -127,9 +127,9 @@ if __name__ == "__main__":
 
     vis_options = [
         "Histograma", 
+        "Diagrama de violín", 
         "Diagrama de dispersión", 
         "Matriz de correlación", 
-        "Diagrama de violín", 
         "Gráfico de coordenadas paralelas", 
         "Visualización en el cielo"
         ]
