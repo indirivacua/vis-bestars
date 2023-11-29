@@ -74,12 +74,27 @@ def scatter_matrix(df, columns):
 from astropy.coordinates import SkyCoord
 import astropy.units as u
 def sky_cord(df, columns):
+    global name
+    name = None
+    column_selector(df)
+    if name == None: #user cancel
+        return
+
+    # Crear un mapa de colores para los tipos de estrellas
+    unique_stars = df[name].unique()
+    colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink', 'olive', 'cyan', 'brown']
+    colormap = {star: color for star, color in zip(unique_stars, colors)}
+
+    # Mapear los tipos de estrellas a colores
+    df['color'] = df[name].map(colormap)
+
     # Convertir las coordenadas RA y DEC a objetos SkyCoord
     coords = SkyCoord(df[columns[0]], df[columns[1]], unit=(u.hourangle, u.deg))
 
     # Crear un gráfico del cielo
     plt.figure(figsize=(10, 6))
-    plt.scatter(coords.ra, coords.dec, marker='o', alpha=0.5, label='Estrellas Be')
+    for star in unique_stars:
+        plt.scatter(coords.ra[df[name] == star], coords.dec[df[name] == star], marker='o', alpha=0.5, label=star, c=df['color'][df[name] == star])
     plt.xlabel(f'Ascensión Recta ({columns[0]})')
     plt.ylabel(f'Declinación ({columns[1]})')
     plt.title('Ubicaciones de Estrellas Be en el Cielo')
