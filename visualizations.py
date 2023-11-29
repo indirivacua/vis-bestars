@@ -51,11 +51,13 @@ def correlation_matrix(df, columns):
     log_norm = LogNorm(vmin=corr_matrix.min().min(), vmax=corr_matrix.max().max())
     sns.heatmap(corr_matrix, mask=mask, cmap=cmap, norm=log_norm, 
                vmax=1, vmin=-1, center=0, square=True, linewidths=.5, cbar_kws={"shrink": .5})
+    plt.suptitle('Matriz de Correlación')
     plt.show()
 
 def violin(df, columns):
     sns.violinplot(data=df[columns], inner="points")    
-    plt.tight_layout()
+    # plt.tight_layout()
+    plt.suptitle('Gráfico de Violín')
     plt.show()
 
 def histogram(df, columns):
@@ -67,6 +69,11 @@ def histogram(df, columns):
         for rect in ax.patches:
             rect.set_color(cmaps[i % len(cmaps)])
 
+    plt.suptitle('Histograma')
+
+    # Ajusta el espacio entre los histogramas
+    plt.subplots_adjust(hspace=0.5, wspace=0.5)
+
     plt.show()
 
 def parallel_coordinates(df, columns):
@@ -77,6 +84,7 @@ def parallel_coordinates(df, columns):
         return
     xy = pd.concat([df[columns],df[name]],axis=1)
     pd.plotting.parallel_coordinates(xy,name,color=('#556270','#4ECDC4','#C7F464', '#000000'))
+    plt.suptitle('Coordenadas Paralelas')
     plt.show()
 
 def scatter_matrix(df, columns):
@@ -88,6 +96,8 @@ def scatter_matrix(df, columns):
     for ax in scatter_matrix.ravel():
         ax.xaxis.label.set_color(cmaps[columns.index(ax.xaxis.label.get_text())])
         ax.yaxis.label.set_color(cmaps[columns.index(ax.yaxis.label.get_text())])
+
+    plt.suptitle('Matriz de Dispersión')
 
     plt.show()
 
